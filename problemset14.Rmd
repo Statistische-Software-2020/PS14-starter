@@ -9,24 +9,25 @@ output:
 
 # Resources
 
-1) Read chapters on loops, conditionals, and functions in R4DS.
-The links can be accessed via [Moodle](https://moodle.lmu.de/course/view.php?id=8020)
+1) Read the chapters on loops, conditionals, and functions in R4DS.
+The chapter can be found on [Moodle](https://moodle.lmu.de/course/view.php?id=8020).
 
-2) Optionally, complete the DataCamp Units provided on the (Moodle page)[https://moodle.lmu.de/course/view.php?id=8020] for this topic.
+2) Optionally, complete the DataCamp Units provided on the [Moodle page](https://moodle.lmu.de/course/view.php?id=8020) for this topic.
 
 3) Accept the invitation to the assignment of this problem set:
+https://classroom.github.com/a/QYxPXzrX
 
 
 # Application
 
-Have a look at the following simulated data set:
+Have a look at the following data set:
 
 ```{r message = FALSE}
 library(MASS)
 head(round(Boston, 3))
 ```
 
-The Boston housing data set is one of the most frequently used data sets in Machine Learning and statistics.
+The Boston housing data set is one of the most frequently used data sets in machine learning and statistics.
 It contains information collected by the U.S Census Service concerning housing in the area of Boston. 
 It was obtained from the StatLib archive (http://lib.stat.cmu.edu/datasets/boston) and has been used extensively throughout the literature to benchmark algorithms. 
 The data was originally published by Harrison and Rubinfeld (for citation see `?Boston`).
@@ -39,29 +40,28 @@ Store the data set as `Boston_new`.
 b) Assume you want to use the `Boston` data set to test a newly developed algorithm.
 Your algorithm is sensitive to the absolute values of features.
 Hence, it would always prefer these features which are large by construction.
-For example, a difference of $4$ years in `age` is probably much less substantial than a difference of $0.4$ in `nox`
+For example, a difference of $4$ years in `age` is probably much less substantial than a difference of $0.4$ in `nox`.
 To eliminate this sensitivity, one could univariately scale the numeric data.
 Univariate scaling simply subtracts the mean of a value and divides the value by its standard deviation.
-
-E.g. a vector reporting height in cm
-
-```{r echo = FALSE}
-height <- c(156, 189, 177, 160, 182, 178)
-height
-```
-
-becomes:
-
-```{r echo = FALSE}
-(height - mean(height)) / sd(height)
-```
-
 Write a for-loop that iterates over the columns of `Boston` and checks if the column is numeric.
 For the numeric columns apply scaling.
 For the categorical ones, leave them as they are.
 `Boston_new` should be scaled for the consequent questions.
 
-c) Use the `apply` family (`lapply`) family to vectorise your solution from b).
+Example:
+A vector reporting height in cm
+
+```{r echo = FALSE}
+c(156, 189, 177, 160, 182, 178)
+```
+
+becomes (when scaling):
+
+```{r echo = FALSE}
+c(-1.3684541, 1.1877149, 0.2581989, -1.0586154, 0.6454972, 0.3356586)
+```
+
+c) Use the `apply` family (`lapply`) family to (at least partly) vectorise your solution from b).
 
 # Transfer
 
@@ -73,7 +73,7 @@ The research group gives you a list containing ten different models.
 The list is stored as an RDS object in this repo.
 Load it into `R`.
 
-a) Write a for-loop that iterates over all possible models and selects the best model -- based on the adjusted R-Squared.
+a) Write a for-loop that iterates over all possible models and selects the best model -- based on the adjusted R squared.
 
 b) Create a function using your previous code which takes a list of linear models as input and returns the model with the highest adjusted R squared.
 Document your function using comments: Describe what the function does, what the inputs are, and what the output is.
